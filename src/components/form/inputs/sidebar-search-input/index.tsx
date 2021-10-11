@@ -1,15 +1,24 @@
-import { Search, ArrowBack } from '@mui/icons-material'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 
-import { Label, Input, SearchWrapper } from './styles'
+import { Search, ArrowBack } from '@mui/icons-material'
+import { useTheme } from '@mui/material/styles'
+
 import { arrowBackVariants, searchIconVariants } from './framer-motion.config'
+import { Label, Input, SearchWrapper } from './styles'
 
 export const SearchInput = (): JSX.Element => {
   const [isOnFocus, setIsOnFocus] = useState(false)
 
+  const { background, buttonColor } = useTheme()
+
   return (
-    <SearchWrapper>
+    <SearchWrapper
+      sx={{
+        backgroundColor: isOnFocus ? buttonColor : background,
+        boxShadow: isOnFocus ? '0px 1px 1px rgba(0, 0, 0,0.3)' : 'unset'
+      }}
+    >
       <Label as="label">
         <AnimatePresence initial={false}>
           {isOnFocus
@@ -21,7 +30,7 @@ export const SearchInput = (): JSX.Element => {
                 animate="animate"
                 exit="exit"
               >
-                <ArrowBack />
+                <ArrowBack className='arrow-back' />
               </motion.span>
               )
             : (

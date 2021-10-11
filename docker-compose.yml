@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+  react-app:
+    image: node:16
+    working_dir: /usr/react-app
+    volumes:
+      - .:/usr/react-app
+    ports:
+      - '3000:3000'
+    command: bash -c 'npm install && npm start'

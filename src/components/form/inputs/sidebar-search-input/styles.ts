@@ -1,5 +1,5 @@
-import { styled } from '@mui/material/styles'
 import { InputBase, Box } from '@mui/material'
+import { styled } from '@mui/material/styles'
 
 export const Input = styled(InputBase)(({ theme }) => ({
   width: '100%',
@@ -12,7 +12,7 @@ export const Label = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   position: 'relative',
   width: '100%',
-  backgroundColor: '#ffff',
+  backgroundColor: theme.buttonColor,
   borderRadius: '1rem',
   padding: '0.1rem 0',
   paddingLeft: '4.0625rem',
@@ -27,10 +27,15 @@ export const Label = styled(Box)(({ theme }) => ({
     justifyItems: 'center',
     position: 'absolute',
     left: '1rem'
+  },
+  '.arrow-back': {
+    color: theme.info
   }
 }))
 
 export const SearchWrapper = styled(Box)(({ theme }) => ({
   padding: '0.5rem 0.9rem',
-  backgroundColor: theme.secondary
+  backgroundColor: theme.secondary,
+  transition: 'background 0.3s ease-in, box-shadow 0.2s ease-in',
+  zIndex: 1
 }))
