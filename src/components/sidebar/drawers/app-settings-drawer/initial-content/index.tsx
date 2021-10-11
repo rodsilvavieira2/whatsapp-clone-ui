@@ -60,11 +60,10 @@ export const InitialContent = ({
       </AvatarButtonWrapper>
 
       <List>
-        <CustomListItem
-          onClick={() => onRequestShowSecondaryContent('notifications')}
-          disablePadding
-        >
-          <ListItemButton>
+        <CustomListItem disablePadding>
+          <ListItemButton
+            onClick={() => onRequestShowSecondaryContent('notifications')}
+          >
             <ListItemIcon>
               <Notifications />
             </ListItemIcon>
@@ -73,11 +72,8 @@ export const InitialContent = ({
           </ListItemButton>
         </CustomListItem>
 
-        <CustomListItem
-          onClick={() => setIsModalThemingOpen(true)}
-          disablePadding
-        >
-          <ListItemButton>
+        <CustomListItem disablePadding>
+          <ListItemButton onClick={() => setIsModalThemingOpen(true)}>
             <ListItemIcon>
               <BrightnessMedium />
             </ListItemIcon>
@@ -97,7 +93,9 @@ export const InitialContent = ({
         </CustomListItem>
 
         <CustomListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton
+            onClick={() => onRequestShowSecondaryContent('archived')}
+          >
             <ListItemIcon>
               <Archive />
             </ListItemIcon>
