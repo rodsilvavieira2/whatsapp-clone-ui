@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
 
-import { CustomCheckBox } from '../../../..'
-import { Container, getSecondaryContentAnimation, Header } from '../../shared'
+import { CustomCheckBox } from '../../../../..'
+import { Container, getSecondaryContentAnimation, Header } from '../../../shared'
 import { ConfigsWrapper } from './styles'
 
 type NotificationsContentProps = {

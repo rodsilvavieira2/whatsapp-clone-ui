@@ -1,6 +1,5 @@
-import { ArchivedConfig } from './archived-config'
 import { SecondaryContent } from './index'
-import { NotificationsContent } from './notifications-content'
+import { ArchivedConfigContent, BlockContent, NotificationsContent } from './sections'
 
 type RenderSecondaryContentProps = {
   currentContent: SecondaryContent
@@ -14,8 +13,8 @@ export const RenderSecondaryContent = ({
   const choose = {
     notifications: <NotificationsContent onRequestBack={onRequestBack} />,
     chatWallpaper: <div></div>,
-    archived: <ArchivedConfig onRequestBack={onRequestBack} />,
-    block: <div></div>,
+    archived: <ArchivedConfigContent onRequestBack={onRequestBack} />,
+    block: <BlockContent onRequestBack={onRequestBack}/>,
     help: <div></div>
   }
 

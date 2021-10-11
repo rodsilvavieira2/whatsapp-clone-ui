@@ -1,16 +1,16 @@
 import { Box, Typography } from '@mui/material'
 
-import { CustomCheckBox } from '../../../..'
-import { Header, getSecondaryContentAnimation, Container } from '../../shared'
+import { CustomCheckBox } from '../../../../..'
+import { Header, getSecondaryContentAnimation, Container } from '../../../shared'
 import { ConfigWrapper } from './styles'
 
-type ArchivedConfigProps = {
+type ArchivedConfigContentProps = {
   onRequestBack: () => void
 }
 
-export const ArchivedConfig = ({
+export const ArchivedConfigContent = ({
   onRequestBack
-}: ArchivedConfigProps): JSX.Element => {
+}: ArchivedConfigContentProps): JSX.Element => {
   return (
     <Container {...getSecondaryContentAnimation()}>
       <Header
