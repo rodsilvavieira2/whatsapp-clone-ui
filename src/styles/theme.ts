@@ -24,6 +24,17 @@ export const LithTheme = {
   },
   hover: {
     button: 'rgba(0, 0, 0, 0.04)'
+  },
+  modal: {
+    overlay: 'hsla(0,0%,100%,0.85)'
+  },
+  inputs: {
+    radio: {
+      color: '#6d5890'
+    }
+  },
+  buttons: {
+    color: '#0aa545'
   }
 }
 

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { CustomDrawer } from '../shared'
 import { DefaultDrawersProps } from '../shared/default'
 import { InitialContent } from './initial-content'
-import { RenderSecondaryContent } from './render-secondary-conent'
+import { RenderSecondaryContent } from './render-secondary-content'
 
 export type SecondaryContent =
   | 'notifications'

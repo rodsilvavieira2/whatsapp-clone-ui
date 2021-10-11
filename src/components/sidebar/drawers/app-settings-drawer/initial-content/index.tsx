@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import {
   Notifications,
   BrightnessMedium,
@@ -18,6 +20,7 @@ import {
 
 import { SecondaryContent } from '..'
 
+import { ChooseThemeModal } from '../../../..'
 import { Container, Header, getPrimaryContentAnimation } from '../../shared'
 import { ContactData, CustomListItem, AvatarButtonWrapper } from './styles'
 
@@ -30,6 +33,8 @@ export const InitialContent = ({
   onRequestCloseDrawer,
   onRequestShowSecondaryContent
 }: InitialContentProps): JSX.Element => {
+  const [isModalThemingOpen, setIsModalThemingOpen] = useState(false)
+
   return (
     <Container {...getPrimaryContentAnimation()}>
       <Header onRequestBack={onRequestCloseDrawer} textLabel="Settings" />
@@ -68,7 +73,10 @@ export const InitialContent = ({
           </ListItemButton>
         </CustomListItem>
 
-        <CustomListItem disablePadding>
+        <CustomListItem
+          onClick={() => setIsModalThemingOpen(true)}
+          disablePadding
+        >
           <ListItemButton>
             <ListItemIcon>
               <BrightnessMedium />
@@ -128,6 +136,11 @@ export const InitialContent = ({
           </ListItemButton>
         </CustomListItem>
       </List>
+
+      <ChooseThemeModal
+        isOpen={isModalThemingOpen}
+        onRequestClose={() => setIsModalThemingOpen(false)}
+      />
     </Container>
   )
 }

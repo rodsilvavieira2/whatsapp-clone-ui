@@ -8,6 +8,7 @@ export const ArchivedAlert = (): JSX.Element => {
         fill="currentColor"
         fillOpacity=".45"
       ></path>
+
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -15,6 +16,7 @@ export const ArchivedAlert = (): JSX.Element => {
         fill="currentColor"
         fillOpacity=".25"
       ></path>
+
       <path
         fillRule="evenodd"
         clipRule="evenodd"
