@@ -1,5 +1,24 @@
-import { Button, Modal, Paper } from '@mui/material'
+import { Modal, Button, Paper } from '@mui/material'
 import { styled } from '@mui/material/styles'
+
+export const CancelButton = styled(Button)(({ theme }) => ({
+  color: theme.buttons.color,
+  borderColor: theme.borderColor.primary,
+  ':hover': {
+    boxShadow: theme.shadows[1],
+    borderColor: theme.borderColor.primary
+  }
+}))
+
+export const OkayButton = styled(Button)(({ theme }) => ({
+  backgroundColor: theme.buttons.color,
+  color: theme.buttonColor,
+  ':hover': {
+    backgroundColor: theme.buttons.color,
+    color: theme.buttonColor,
+    boxShadow: theme.shadows[10]
+  }
+}))
 
 export const CustomModal = styled(Modal)(({ theme }) => ({
   display: 'flex',
@@ -24,22 +43,3 @@ export const ButtonWrapper = styled('div')({
   alignItems: 'center',
   marginTop: '1rem'
 })
-
-export const CancelButton = styled(Button)(({ theme }) => ({
-  color: theme.buttons.color,
-  borderColor: theme.borderColor.primary,
-  ':hover': {
-    boxShadow: theme.shadows[1],
-    borderColor: theme.borderColor.primary
-  }
-}))
-
-export const OkayButton = styled(Button)(({ theme }) => ({
-  backgroundColor: theme.buttons.color,
-  color: theme.buttonColor,
-  ':hover': {
-    backgroundColor: theme.buttons.color,
-    color: theme.buttonColor,
-    boxShadow: theme.shadows[1]
-  }
-}))

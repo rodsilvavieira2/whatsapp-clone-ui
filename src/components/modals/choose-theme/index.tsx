@@ -6,14 +6,14 @@ import {
 } from '@mui/material'
 
 import { CustomRadio } from '../..'
-import { DefaultPropsModal } from '../shared'
 import {
-  CustomModal,
-  Content,
-  ButtonWrapper,
   CancelButton,
-  OkayButton
-} from './styles'
+  CustomModal,
+  DefaultPropsModal,
+  OkayButton,
+  Content,
+  ButtonWrapper
+} from '../shared'
 
 export const ChooseThemeModal = ({
   isOpen,

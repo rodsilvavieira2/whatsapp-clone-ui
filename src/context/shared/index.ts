@@ -1,1 +1,1 @@
-export * from './default-prodiver-props'
+export * from './default-provider-props'

@@ -1,6 +1,7 @@
 import { PersonAdd } from '@mui/icons-material'
 
-import { BlockedContact } from '../../../../..'
+import { BlockedContact, ShouldUnblockContactModal } from '../../../../..'
+import { useUserActions } from '../../../../../../hooks'
 import { ContactsMocked } from '../../../../../../mock/contact-data'
 import {
   Header,
@@ -16,6 +17,8 @@ type BlockContentProps = {
 export const BlockContent = ({
   onRequestBack
 }: BlockContentProps): JSX.Element => {
+  const { isUnblockModalOpen, toggleUnblockModal } = useUserActions()
+
   return (
     <Container {...getSecondaryContentAnimation()}>
       <Header onRequestBack={onRequestBack} textLabel="Blocked contacts" />
@@ -29,6 +32,11 @@ export const BlockContent = ({
           <BlockedContact key={data.id} {...data} />
         ))}
       </Body>
+
+      <ShouldUnblockContactModal
+        isOpen={isUnblockModalOpen}
+        onRequestClose={toggleUnblockModal}
+      />
     </Container>
   )
 }

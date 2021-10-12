@@ -1,19 +1,25 @@
 import { Close } from '@mui/icons-material'
 import { Avatar, Typography } from '@mui/material'
 
+import { Contact } from '../../../@types'
+import { useUserActions } from '../../../hooks'
 import { Container, ContactDataWrapper, CloseButton } from './styles'
 
-type BlockedContactProps = {
-  contactName: string
-  lastMessage: string
-  avatarUrl: string
-}
+type BlockedContactProps = Contact
 
 export const BlockedContact = ({
+  id,
   contactName,
   lastMessage,
   avatarUrl
 }: BlockedContactProps): JSX.Element => {
+  const { loadBlockedContact, toggleUnblockModal } = useUserActions()
+
+  const onShouldUnblock = () => {
+    toggleUnblockModal()
+    loadBlockedContact({ id, contactName, lastMessage, avatarUrl })
+  }
+
   return (
     <Container>
       <Avatar
@@ -34,7 +40,7 @@ export const BlockedContact = ({
         </Typography>
       </ContactDataWrapper>
 
-      <CloseButton>
+      <CloseButton onClick={onShouldUnblock}>
         <Close />
       </CloseButton>
     </Container>

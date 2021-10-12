@@ -1,6 +1,7 @@
 import { Box, styled } from '@mui/material'
 
 import { Sidebar, Chat } from './components'
+import { ContactManagerProvider, UserActionsProvider } from './context'
 
 const Container = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -16,8 +17,12 @@ const Container = styled(Box)(({ theme }) => ({
 export const App = (): JSX.Element => {
   return (
     <Container>
-      <Sidebar />
-      <Chat />
+      <ContactManagerProvider>
+        <UserActionsProvider>
+          <Sidebar />
+          <Chat />
+        </UserActionsProvider>
+      </ContactManagerProvider>
     </Container>
   )
 }

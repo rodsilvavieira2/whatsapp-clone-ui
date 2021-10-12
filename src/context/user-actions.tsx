@@ -5,6 +5,8 @@ import { Contact } from '../@types'
 export type UserActionsContextData = {
   loadBlockedContact: (contact: Contact) => void
   currentLoadedContactBlocked: Contact | null
+  toggleUnblockModal: () => void
+  isUnblockModalOpen: boolean
 }
 
 export const UserActionsContext = createContext<UserActionsContextData>(
@@ -21,15 +23,23 @@ export const UserActionsProvider = ({
   const [currentLoadedContactBlocked, setCurrentLoadedContactBlocked] =
     useState<Contact | null>(null)
 
+  const [isUnblockModalOpen, setIsUnblockModalOpen] = useState(false)
+
   const loadBlockedContact = useCallback((contact: Contact) => {
     setCurrentLoadedContactBlocked(contact)
+  }, [])
+
+  const toggleUnblockModal = useCallback(() => {
+    setIsUnblockModalOpen((prev) => !prev)
   }, [])
 
   return (
     <UserActionsContext.Provider
       value={{
         currentLoadedContactBlocked,
-        loadBlockedContact
+        loadBlockedContact,
+        isUnblockModalOpen,
+        toggleUnblockModal
       }}
     >
       {children}
