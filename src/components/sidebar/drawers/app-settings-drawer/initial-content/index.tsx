@@ -127,7 +127,9 @@ export const InitialContent = ({
         </CustomListItem>
 
         <CustomListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton
+            onClick={() => onRequestShowSecondaryContent('help')}
+          >
             <ListItemIcon>
               <Help />
             </ListItemIcon>
