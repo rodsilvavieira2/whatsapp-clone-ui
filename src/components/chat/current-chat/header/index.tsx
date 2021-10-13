@@ -25,7 +25,13 @@ export const Header = ({ contactName }: HeaderProps): JSX.Element => {
           <Search />
         </IconButton>
 
-        <IconButton>
+        <IconButton
+          sx={
+            {
+              marginLeft: '0.5rem'
+            }
+          }
+        >
           <MoreVert />
         </IconButton>
       </Actions>

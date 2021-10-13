@@ -34,8 +34,12 @@ export const LithTheme = {
     }
   },
   buttons: {
-    color: '#0aa545'
-  }
+    color: '#0aa545',
+    shadows: {
+      1: '0 1px 2px rgba(0,0,0,0.17),0 6px 8px rgba(0,0,0,0.29)'
+    }
+  },
+  defaultChatBackgroundColor: 'rgb(229, 221, 213)'
 }
 
 export const theme = createTheme({
