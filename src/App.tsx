@@ -1,6 +1,6 @@
 import { Box, styled } from '@mui/material'
 
-import { Sidebar, Chat } from './components'
+import { Sidebar, Chat, ChatData } from './components'
 import { ContactManagerProvider, UserActionsProvider } from './context'
 
 const Container = styled(Box)(({ theme }) => ({
@@ -20,7 +20,10 @@ export const App = (): JSX.Element => {
       <ContactManagerProvider>
         <UserActionsProvider>
           <Sidebar />
+
           <Chat />
+
+          <ChatData />
         </UserActionsProvider>
       </ContactManagerProvider>
     </Container>

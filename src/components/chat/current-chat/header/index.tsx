@@ -1,6 +1,7 @@
 import { MoreVert, Search } from '@mui/icons-material'
 import { Avatar, IconButton, Typography } from '@mui/material'
 
+import { useUserActions } from '../../../../hooks'
 import { Container, ContactData, Actions } from './styles'
 
 type HeaderProps = {
@@ -8,13 +9,20 @@ type HeaderProps = {
 }
 
 export const Header = ({ contactName }: HeaderProps): JSX.Element => {
+  const { toggleChatDataDrawer } = useUserActions()
+
   return (
     <Container>
-      <Avatar
-        sx={{
-          flexShrink: 0
-        }}
-      />
+      <IconButton
+        aria-label="open current chat  data"
+        onClick={toggleChatDataDrawer}
+      >
+        <Avatar
+          sx={{
+            flexShrink: 0
+          }}
+        />
+      </IconButton>
 
       <ContactData>
         <Typography>{contactName}</Typography>
@@ -26,11 +34,9 @@ export const Header = ({ contactName }: HeaderProps): JSX.Element => {
         </IconButton>
 
         <IconButton
-          sx={
-            {
-              marginLeft: '0.5rem'
-            }
-          }
+          sx={{
+            marginLeft: '0.5rem'
+          }}
         >
           <MoreVert />
         </IconButton>

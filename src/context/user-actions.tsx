@@ -6,7 +6,9 @@ export type UserActionsContextData = {
   loadBlockedContact: (contact: Contact) => void
   currentLoadedContactBlocked: Contact | null
   toggleUnblockModal: () => void
+  toggleChatDataDrawer: () => void
   isUnblockModalOpen: boolean
+  isContactDataDrawerOpen: boolean
 }
 
 export const UserActionsContext = createContext<UserActionsContextData>(
@@ -23,6 +25,8 @@ export const UserActionsProvider = ({
   const [currentLoadedContactBlocked, setCurrentLoadedContactBlocked] =
     useState<Contact | null>(null)
 
+  const [isContactDataDrawerOpen, setIsContactDataDrawerOpen] = useState(true)
+
   const [isUnblockModalOpen, setIsUnblockModalOpen] = useState(false)
 
   const loadBlockedContact = useCallback((contact: Contact) => {
@@ -33,9 +37,15 @@ export const UserActionsProvider = ({
     setIsUnblockModalOpen((prev) => !prev)
   }, [])
 
+  const toggleChatDataDrawer = useCallback(() => {
+    setIsContactDataDrawerOpen((prev) => !prev)
+  }, [])
+
   return (
     <UserActionsContext.Provider
       value={{
+        isContactDataDrawerOpen,
+        toggleChatDataDrawer,
         currentLoadedContactBlocked,
         loadBlockedContact,
         isUnblockModalOpen,

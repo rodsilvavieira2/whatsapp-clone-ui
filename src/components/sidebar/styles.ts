@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles'
 export const Container = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
-  width: '25.625rem',
+  maxWidth: '25.625rem',
   height: '100%',
   borderRight: `1px solid ${theme.borderColor.primary}`
 }))
