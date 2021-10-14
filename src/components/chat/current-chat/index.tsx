@@ -7,7 +7,7 @@ import { Container } from './styles'
 export const CurrentChat = (): JSX.Element => {
   const { state: { isContactDataDrawerOpen } } = useUserActions()
   return (
-    <Container isContactDataOpen={isContactDataDrawerOpen}>
+    <Container isDataContactOpen={isContactDataDrawerOpen}>
       <Header contactName="Rodrigo Silva" />
 
       <Messages />

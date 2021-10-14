@@ -1,18 +1,24 @@
 import { styled } from '@mui/material/styles'
 
-export const Container = styled('aside')(({ theme }) => ({
+type ContainerProps = {
+  isDataContactOpen: boolean
+}
+
+export const Container = styled('aside', {
+  shouldForwardProp: (prop) => prop !== 'isDataContactOpen'
+})<ContainerProps>(({ theme, isDataContactOpen }) => ({
   display: 'flex',
   flexDirection: 'column',
-  maxWidth: '25.625rem',
-  height: '100%',
-  borderRight: `1px solid ${theme.borderColor.primary}`
+  flex: isDataContactOpen ? '0 0 25%' : '30%',
+  borderRight: `1px solid ${theme.borderColor.primary}`,
+  overflow: 'hidden'
 }))
 
 export const Header = styled('header')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  padding: '0.625rem 1rem',
+  padding: theme.utils.covertPxToRem([10, 16]),
   backgroundColor: theme.primary,
   svg: {
     color: theme.text.primary
@@ -28,12 +34,11 @@ export const Actions = styled('div')({
 })
 
 export const ContactMessageList = styled('div')(({ theme }) => ({
-  flex: '1',
   backgroundColor: theme.card.colors.primary,
+  maxWidth: '100%',
+  flex: 1,
   overflow: 'auto',
-  paddingBottom: '1rem',
-  scrollbarColor: 'rgba(0,0,0,.2) hsla(0,0%,100%,.1)',
-  scrollbarWidth: 'thin'
+  paddingBottom: '1rem'
 }))
 
 export const ArchivedButton = styled('button')(({ theme }) => ({

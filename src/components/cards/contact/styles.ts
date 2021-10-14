@@ -8,6 +8,7 @@ export const Container = styled('div')(({ theme }) => ({
   overflow: 'hidden',
   height: '4.5rem',
   paddingRight: '0.5rem',
+  maxWidth: '100%',
   cursor: 'pointer',
   transition: 'background 0.3s',
   ':hover': {
@@ -25,29 +26,12 @@ export const Data = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  flex: 1,
-
   height: '100%',
+  width: '100%',
+  maxWidth: '100%',
   borderTop: `1px solid ${theme.borderColor.secondary}`,
-  lineHeight: '21px !important',
+  lineHeight: theme.utils.covertPxToRem(21),
   overflow: 'hidden',
-
-  '> *': {
-    maxWidth: '100%',
-    textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap',
-    overflow: 'hidden'
-  },
-
-  small: {
-    display: 'inline-block',
-    color: theme.text.secondary,
-    fontSize: '0.875rem',
-    maxWidth: '100%',
-    fontWeight: 400,
-    textOverflow: 'ellipsis',
-    overflow: 'hidden'
-  },
   p: {
     display: 'flex',
     fontSize: '1.0625rem'
@@ -65,7 +49,38 @@ export const MenuButton = styled(IconButton)({
   height: '1.5rem'
 })
 
-export const LastMessageWrapper = styled('div')({
+type LastMessageWrapperProps = {
+  isInFocus: boolean
+}
+
+export const LastMessageWrapper = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'isInFocus'
+})<LastMessageWrapperProps>(({ theme, isInFocus }) => ({
   display: 'flex',
-  justifyContent: 'space-between'
-})
+  justifyContent: 'space-between',
+  maxWidth: '100%',
+  position: 'relative',
+  '& > small': {
+    display: 'inline-block',
+    color: theme.text.secondary,
+    fontSize: '0.875rem',
+    fontWeight: 400,
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    width: isInFocus ? '90%' : '100%',
+    transition: 'all 0.3s ease-in'
+  }
+}))
+
+type ContactActionsProps = {
+  isInFocus: boolean
+}
+
+export const ContactActions = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'isInFocus'
+})<ContactActionsProps>(({ isInFocus }) => ({
+  position: 'absolute',
+  left: isInFocus ? '90%' : '100%',
+  transition: 'all 0.3s ease-in'
+}))

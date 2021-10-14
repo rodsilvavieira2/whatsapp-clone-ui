@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import { KeyboardArrowDown } from '@mui/icons-material'
-import { Typography, Box, Menu } from '@mui/material'
+import { Typography, Menu } from '@mui/material'
 
 import { CustomMenuItem } from '../..'
 import { useControlMenu } from '../../../hooks'
@@ -11,7 +11,8 @@ import {
   Data,
   LastMessageTemp,
   MenuButton,
-  LastMessageWrapper
+  LastMessageWrapper,
+  ContactActions
 } from './styles'
 
 type ContactCardProps = {
@@ -52,16 +53,10 @@ export const ContactCard = ({
           <LastMessageTemp>12:58</LastMessageTemp>
         </Typography>
 
-        <LastMessageWrapper>
+        <LastMessageWrapper isInFocus={shouldShowActionsBox}>
           <Typography component="small">{lastMessage}</Typography>
 
-          <Box
-            className="actions-box"
-            sx={{
-              marginRight: shouldShowActionsBox ? '0%' : '-20%',
-              transition: 'all 0.3s ease-in'
-            }}
-          >
+          <ContactActions isInFocus={shouldShowActionsBox}>
             <MenuButton
               aria-label="show contact options"
               aria-controls="contact-menu-options"
@@ -71,7 +66,7 @@ export const ContactCard = ({
             >
               <KeyboardArrowDown />
             </MenuButton>
-          </Box>
+          </ContactActions>
         </LastMessageWrapper>
       </Data>
 

@@ -5,7 +5,7 @@ import { Avatar, IconButton, Menu } from '@mui/material'
 
 import { StoriesIcon, SearchInput, ContactCard, CustomMenuItem } from '..'
 
-import { useControlMenu } from '../../hooks'
+import { useControlMenu, useUserActions } from '../../hooks'
 import { ContactsMocked } from '../../mock/contact-data'
 import { AppSettingsDrawer, ArchivedContactsDrawer } from './drawers'
 import {
@@ -21,6 +21,10 @@ export const Sidebar = (): JSX.Element => {
     {}
   )
 
+  const {
+    state: { isContactDataDrawerOpen }
+  } = useUserActions()
+
   const [isArchivedDrawerOpen, setIsArchivedDrawerOpen] = useState(false)
   const [isAppSettingsDrawerOpen, setIsAppSettingsDrawerOpen] = useState(false)
 
@@ -30,7 +34,7 @@ export const Sidebar = (): JSX.Element => {
   }
 
   return (
-    <Container>
+    <Container isDataContactOpen={isContactDataDrawerOpen}>
       <Header>
         <Avatar />
 
