@@ -1,19 +1,17 @@
 import { useState } from 'react'
 
-import { MoreVert, Message, Archive } from '@mui/icons-material'
+import { MoreVert, Message } from '@mui/icons-material'
 import { Avatar, IconButton, Menu } from '@mui/material'
 
-import { StoriesIcon, SearchInput, ContactCard, CustomMenuItem } from '..'
+import { StoriesIcon, CustomMenuItem } from '..'
 
 import { useControlMenu, useUserActions } from '../../hooks'
-import { ContactsMocked } from '../../mock/contact-data'
+import { ContactMessageList } from './contact-message-list'
 import { AppSettingsDrawer, ArchivedContactsDrawer } from './drawers'
 import {
   Container,
   Header,
-  Actions,
-  ContactMessageList,
-  ArchivedButton
+  Actions
 } from './styles'
 
 export const Sidebar = (): JSX.Element => {
@@ -59,22 +57,7 @@ export const Sidebar = (): JSX.Element => {
         </Actions>
       </Header>
 
-      <SearchInput />
-
-      <ContactMessageList>
-        <ArchivedButton
-          aria-label="open archived contactList"
-          onClick={() => setIsArchivedDrawerOpen(true)}
-        >
-          <Archive />
-
-          <span>Archived</span>
-        </ArchivedButton>
-
-        {ContactsMocked.map((data) => (
-          <ContactCard key={data.id} {...data} />
-        ))}
-      </ContactMessageList>
+      <ContactMessageList onRequestOpenArchivedDrawer={() => setIsArchivedDrawerOpen(true) } />
 
       <Menu
         id="archived-contacts-menu"

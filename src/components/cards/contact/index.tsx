@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { memo, useState } from 'react'
 
 import { KeyboardArrowDown } from '@mui/icons-material'
 import { Typography, Menu } from '@mui/material'
@@ -22,7 +22,7 @@ type ContactCardProps = {
   avatarUrl: string
 }
 
-export const ContactCard = ({
+export const Base = ({
   avatarUrl,
   contactName,
   lastMessage
@@ -93,3 +93,5 @@ export const ContactCard = ({
     </Container>
   )
 }
+
+export const ContactCard = memo(Base)
