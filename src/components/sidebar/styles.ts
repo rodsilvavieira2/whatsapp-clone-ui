@@ -1,7 +1,6 @@
-import { Box } from '@mui/material'
 import { styled } from '@mui/material/styles'
 
-export const Container = styled(Box)(({ theme }) => ({
+export const Container = styled('aside')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   maxWidth: '25.625rem',
@@ -9,7 +8,7 @@ export const Container = styled(Box)(({ theme }) => ({
   borderRight: `1px solid ${theme.borderColor.primary}`
 }))
 
-export const Header = styled(Box)(({ theme }) => ({
+export const Header = styled('header')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -20,7 +19,7 @@ export const Header = styled(Box)(({ theme }) => ({
   }
 }))
 
-export const Actions = styled(Box)({
+export const Actions = styled('div')({
   display: 'flex',
   alignItems: 'center',
   '& > * + * ': {
@@ -28,9 +27,9 @@ export const Actions = styled(Box)({
   }
 })
 
-export const ContactMessageList = styled(Box)(({ theme }) => ({
+export const ContactMessageList = styled('div')(({ theme }) => ({
   flex: '1',
-  backgroundColor: theme.buttonColor,
+  backgroundColor: theme.card.colors.primary,
   overflow: 'auto',
   paddingBottom: '1rem',
   scrollbarColor: 'rgba(0,0,0,.2) hsla(0,0%,100%,.1)',
@@ -40,7 +39,7 @@ export const ContactMessageList = styled(Box)(({ theme }) => ({
 export const ArchivedButton = styled('button')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-  backgroundColor: theme.buttonColor,
+  backgroundColor: theme.card.colors.primary,
   fontFamily: 'inherit',
   border: 0,
   color: theme.title,

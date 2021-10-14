@@ -12,7 +12,7 @@ export const Label = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   position: 'relative',
   width: '100%',
-  backgroundColor: theme.buttonColor,
+  backgroundColor: theme.card.colors.primary,
   borderRadius: '1rem',
   padding: '0.1rem 0',
   paddingLeft: '4.0625rem',

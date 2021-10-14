@@ -2,7 +2,7 @@ import { Modal, Button, Paper } from '@mui/material'
 import { styled } from '@mui/material/styles'
 
 export const CancelButton = styled(Button)(({ theme }) => ({
-  color: theme.buttons.color,
+  color: theme.highlight.main,
   borderColor: theme.borderColor.primary,
   ':hover': {
     boxShadow: theme.shadows[1],
@@ -11,11 +11,11 @@ export const CancelButton = styled(Button)(({ theme }) => ({
 }))
 
 export const OkayButton = styled(Button)(({ theme }) => ({
-  backgroundColor: theme.buttons.color,
-  color: theme.buttonColor,
+  backgroundColor: theme.highlight.main,
+  color: theme.card.colors.primary,
   ':hover': {
-    backgroundColor: theme.buttons.color,
-    color: theme.buttonColor,
+    backgroundColor: theme.highlight.main,
+    color: theme.card.colors.primary,
     boxShadow: theme.shadows[10]
   }
 }))

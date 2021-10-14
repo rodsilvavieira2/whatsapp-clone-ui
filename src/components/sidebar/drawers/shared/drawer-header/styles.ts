@@ -5,12 +5,12 @@ export const Container = styled('header')(({ theme }) => ({
   flexDirection: 'column',
   flexShrink: 0,
   backgroundColor: theme.highlight.primary,
-  color: theme.buttonColor,
+  color: theme.card.colors.primary,
   height: '6.75rem',
   padding: '0 1.4375rem',
   width: '100%',
   svg: {
-    color: theme.buttonColor
+    color: theme.card.colors.primary
   }
 }))
 

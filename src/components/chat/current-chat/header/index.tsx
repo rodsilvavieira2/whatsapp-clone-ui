@@ -9,13 +9,13 @@ type HeaderProps = {
 }
 
 export const Header = ({ contactName }: HeaderProps): JSX.Element => {
-  const { toggleChatDataDrawer } = useUserActions()
+  const { dispatch } = useUserActions()
 
   return (
     <Container>
       <IconButton
-        aria-label="open current chat  data"
-        onClick={toggleChatDataDrawer}
+        aria-label="open current chat data"
+        onClick={() => dispatch({ type: 'toggle-chat-data-drawer' }) }
       >
         <Avatar
           sx={{

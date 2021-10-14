@@ -7,12 +7,12 @@ export const containerVariants: Variants = {
   animate: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1
+      staggerChildren: 0.05
     }
   },
   exit: {
     transition: {
-      staggerChildren: 0.1
+      staggerChildren: 0.05
     },
     opacity: 0.5
   }

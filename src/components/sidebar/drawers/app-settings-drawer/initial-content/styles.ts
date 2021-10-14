@@ -30,7 +30,7 @@ export const AvatarButtonWrapper = styled(ButtonBase)(({ theme }) => ({
   justifyContent: 'unset',
   padding: '0.8rem 1rem',
   ':hover': {
-    backgroundColor: theme.hover.button
+    backgroundColor: theme.buttons.hover[1]
   },
   transition: 'background 0.3s'
 }))

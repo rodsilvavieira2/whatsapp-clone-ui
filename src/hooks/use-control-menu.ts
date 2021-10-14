@@ -11,11 +11,6 @@ type USeControlMenusProps = {
   onClose?: () => void
 }
 
-type Rodrigo = {
-  rodrigo: 'rodrigo',
-  lara: 'rodrigo'
-}
-
 export const useControlMenu = ({
   onClose
 }: USeControlMenusProps): UseControlMenuReturn => {

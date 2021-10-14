@@ -1,14 +1,15 @@
-import { createContext, ReactNode, useCallback, useState } from 'react'
+import { createContext, Dispatch, ReactNode, useReducer } from 'react'
 
-import { Contact } from '../@types'
+import {
+  InitialUserActionState,
+  UserActionsReducer,
+  UserActionsActions,
+  UserActionsInitialState
+} from '../reduces'
 
 export type UserActionsContextData = {
-  loadBlockedContact: (contact: Contact) => void
-  currentLoadedContactBlocked: Contact | null
-  toggleUnblockModal: () => void
-  toggleChatDataDrawer: () => void
-  isUnblockModalOpen: boolean
-  isContactDataDrawerOpen: boolean
+  state: UserActionsInitialState
+  dispatch: Dispatch<UserActionsActions>
 }
 
 export const UserActionsContext = createContext<UserActionsContextData>(
@@ -22,34 +23,16 @@ type UserActionsProviderProps = {
 export const UserActionsProvider = ({
   children
 }: UserActionsProviderProps): JSX.Element => {
-  const [currentLoadedContactBlocked, setCurrentLoadedContactBlocked] =
-    useState<Contact | null>(null)
-
-  const [isContactDataDrawerOpen, setIsContactDataDrawerOpen] = useState(true)
-
-  const [isUnblockModalOpen, setIsUnblockModalOpen] = useState(false)
-
-  const loadBlockedContact = useCallback((contact: Contact) => {
-    setCurrentLoadedContactBlocked(contact)
-  }, [])
-
-  const toggleUnblockModal = useCallback(() => {
-    setIsUnblockModalOpen((prev) => !prev)
-  }, [])
-
-  const toggleChatDataDrawer = useCallback(() => {
-    setIsContactDataDrawerOpen((prev) => !prev)
-  }, [])
+  const [state, dispatch] = useReducer(
+    UserActionsReducer,
+    InitialUserActionState
+  )
 
   return (
     <UserActionsContext.Provider
       value={{
-        isContactDataDrawerOpen,
-        toggleChatDataDrawer,
-        currentLoadedContactBlocked,
-        loadBlockedContact,
-        isUnblockModalOpen,
-        toggleUnblockModal
+        state,
+        dispatch
       }}
     >
       {children}

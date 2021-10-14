@@ -4,7 +4,7 @@ type ContainerProps = {
   isContactDataOpen: boolean
 }
 
-export const Container = styled('div', {
+export const Container = styled('main', {
   shouldForwardProp: (prop) => prop !== 'open'
 })<ContainerProps>(({ isContactDataOpen, theme }) => ({
   display: 'flex',

@@ -14,7 +14,7 @@ export const ShouldUnblockContactModal = ({
   isOpen,
   onRequestClose
 }: DefaultPropsModal): JSX.Element => {
-  const { currentLoadedContactBlocked } = useUserActions()
+  const { state: { currentLoadedContactBlocked } } = useUserActions()
 
   return (
     <CustomModal open={isOpen}>

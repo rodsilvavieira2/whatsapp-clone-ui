@@ -24,7 +24,10 @@ import {
 } from './styles'
 
 export const ChatData = (): JSX.Element => {
-  const { isContactDataDrawerOpen, toggleChatDataDrawer } = useUserActions()
+  const {
+    state: { isContactDataDrawerOpen },
+    dispatch
+  } = useUserActions()
 
   return (
     <CustomDrawer
@@ -35,7 +38,7 @@ export const ChatData = (): JSX.Element => {
       <Header>
         <IconButton
           aria-label="close contact data"
-          onClick={toggleChatDataDrawer}
+          onClick={ () => dispatch({ type: 'toggle-chat-data-drawer' })}
         >
           <Close />
         </IconButton>

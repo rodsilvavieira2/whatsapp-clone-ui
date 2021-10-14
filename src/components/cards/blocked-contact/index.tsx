@@ -13,11 +13,14 @@ export const BlockedContact = ({
   lastMessage,
   avatarUrl
 }: BlockedContactProps): JSX.Element => {
-  const { loadBlockedContact, toggleUnblockModal } = useUserActions()
+  const { dispatch } = useUserActions()
 
   const onShouldUnblock = () => {
-    toggleUnblockModal()
-    loadBlockedContact({ id, contactName, lastMessage, avatarUrl })
+    dispatch({ type: 'toggle-unblock-modal' })
+    dispatch({
+      type: 'load-blocked-contact',
+      payload: { id, contactName, lastMessage, avatarUrl }
+    })
   }
 
   return (

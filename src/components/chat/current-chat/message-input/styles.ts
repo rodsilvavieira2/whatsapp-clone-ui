@@ -21,7 +21,7 @@ export const InputWrapper = styled('label')(({ theme }) => ({
   height: ' 2.625rem',
   padding: '0 1rem',
   margin: '0 0.5rem',
-  backgroundColor: theme.buttonColor,
+  backgroundColor: theme.card.colors.primary,
   borderRadius: '2rem'
 }))
 

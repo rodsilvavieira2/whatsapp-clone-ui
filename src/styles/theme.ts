@@ -4,11 +4,12 @@ import { ConvertPxToRem } from '../util'
 
 export const LithTheme = {
   primary: '#EDEDED',
-  background: '#f8f9fa',
   secondary: '#f6f6f6',
+  background: '#f8f9fa',
   highlight: {
     primary: '#00bfa5',
-    secondary: '#06D755'
+    secondary: '#06D755',
+    main: '#0aa545'
   },
   text: {
     primary: '#525252',
@@ -20,12 +21,8 @@ export const LithTheme = {
     secondary: '#f2f2f2'
   },
   info: '#57c6f4',
-  buttonColor: '#ffff',
   menuText: {
     primary: '#4a4a4a'
-  },
-  hover: {
-    button: 'rgba(0, 0, 0, 0.04)'
   },
   modal: {
     overlay: 'hsla(0,0%,100%,0.85)'
@@ -36,18 +33,25 @@ export const LithTheme = {
     }
   },
   buttons: {
-    color: '#0aa545',
     shadows: {
       1: '0 1px 2px rgba(0,0,0,0.17),0 6px 8px rgba(0,0,0,0.29)'
+    },
+    hover: {
+      1: 'rgba(0, 0, 0, 0.04)'
     }
   },
-  defaultChatBackgroundColor: 'rgb(229, 221, 213)',
+  chat: {
+    defaultColor: 'rgb(229, 221, 213)'
+  },
   utils: {
     covertPxToRem: ConvertPxToRem
   },
   card: {
     shadows: {
       1: '0 1px 3px rgba(0, 0, 0, 0.08)'
+    },
+    colors: {
+      primary: '#ffff'
     }
   },
   error: {

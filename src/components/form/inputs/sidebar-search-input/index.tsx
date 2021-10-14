@@ -10,12 +10,12 @@ import { Label, Input, SearchWrapper } from './styles'
 export const SearchInput = (): JSX.Element => {
   const [isOnFocus, setIsOnFocus] = useState(false)
 
-  const { background, buttonColor } = useTheme()
+  const { background, card: { colors } } = useTheme()
 
   return (
     <SearchWrapper
       sx={{
-        backgroundColor: isOnFocus ? buttonColor : background,
+        backgroundColor: isOnFocus ? colors.primary : background,
         boxShadow: isOnFocus ? '0px 1px 1px rgba(0, 0, 0,0.3)' : 'unset'
       }}
     >
@@ -23,26 +23,26 @@ export const SearchInput = (): JSX.Element => {
         <AnimatePresence initial={false}>
           {isOnFocus
             ? (
-              <motion.span
-                key={1}
-                variants={arrowBackVariants}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-              >
-                <ArrowBack className='arrow-back' />
-              </motion.span>
+            <motion.span
+              key={1}
+              variants={arrowBackVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <ArrowBack className="arrow-back" />
+            </motion.span>
               )
             : (
-              <motion.span
-                key={2}
-                variants={searchIconVariants}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-              >
-                <Search />
-              </motion.span>
+            <motion.span
+              key={2}
+              variants={searchIconVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <Search />
+            </motion.span>
               )}
         </AnimatePresence>
         <Input

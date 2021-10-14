@@ -17,7 +17,7 @@ type BlockContentProps = {
 export const BlockContent = ({
   onRequestBack
 }: BlockContentProps): JSX.Element => {
-  const { isUnblockModalOpen, toggleUnblockModal } = useUserActions()
+  const { state: { isUnblockModalOpen }, dispatch } = useUserActions()
 
   return (
     <Container {...getSecondaryContentAnimation()}>
@@ -35,7 +35,7 @@ export const BlockContent = ({
 
       <ShouldUnblockContactModal
         isOpen={isUnblockModalOpen}
-        onRequestClose={toggleUnblockModal}
+        onRequestClose={() => dispatch({ type: 'toggle-unblock-modal' }) }
       />
     </Container>
   )

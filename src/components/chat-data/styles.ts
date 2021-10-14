@@ -50,7 +50,7 @@ export const CustomStack = styled(Stack)(({ theme }) => ({
   overflow: 'auto',
   paddingBottom: theme.utils.covertPxToRem(32),
   '> *': {
-    backgroundColor: theme.buttonColor,
+    backgroundColor: theme.card.colors.primary,
     boxShadow: theme.card.shadows[1],
     flexShrink: 0
   }
@@ -135,7 +135,7 @@ export const MessageAndPhoneNumberItem = styled(Typography)(({ theme }) => ({
 
 export const ActionsButton = styled(ButtonBase)(({ theme }) => ({
   justifyContent: 'flex-start',
-  backgroundColor: theme.buttonColor,
+  backgroundColor: theme.card.colors.primary,
   color: theme.error.primary,
   fontSize: '1rem',
   height: theme.utils.covertPxToRem(60),
