@@ -8,8 +8,11 @@ export const Container = styled('div')(({ theme }) => ({
   alignItems: 'center',
   position: 'relative',
   height: '3.875rem',
-  backgroundColor: theme.primary,
-  padding: '0 1rem'
+  backgroundColor: theme.card.colors.secondary,
+  padding: '0 1rem',
+  'button > svg': {
+    color: theme.icons.color.primary
+  }
 }))
 
 export const Actions = styled('div')({})
@@ -21,7 +24,7 @@ export const InputWrapper = styled('label')(({ theme }) => ({
   height: ' 2.625rem',
   padding: '0 1rem',
   margin: '0 0.5rem',
-  backgroundColor: theme.card.colors.primary,
+  backgroundColor: theme.card.colors.main,
   borderRadius: '2rem'
 }))
 

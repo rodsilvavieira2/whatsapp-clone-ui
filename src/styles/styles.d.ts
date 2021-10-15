@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 import '@mui/material/styles'
 
-import { LithTheme } from './theme'
+import { lithTheme } from './theme'
 
-type ThemeSchema = typeof LithTheme;
+type ThemeSchema = typeof lithTheme;
 
 declare module '@mui/material/styles' {
   interface Theme extends ThemeSchema {}

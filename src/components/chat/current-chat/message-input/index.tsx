@@ -38,7 +38,7 @@ export const MessageInput = (): JSX.Element => {
   return (
     <Container>
       <Actions>
-        <IconButton>
+        <IconButton aria-label="search a emoji">
           <HappyEmoji />
         </IconButton>
 
@@ -47,6 +47,7 @@ export const MessageInput = (): JSX.Element => {
           sx={{
             marginLeft: '0.5rem'
           }}
+          aria-label="attach something"
           ref={clipBoardButtonRef}
         >
           <ClipBoard />
@@ -62,25 +63,25 @@ export const MessageInput = (): JSX.Element => {
             exit="exit"
           >
             <motion.li variants={childrenVariants}>
-              <PinButton>
+              <PinButton aria-label="attach a photo">
                 <PhotoPin />
               </PinButton>
             </motion.li>
 
             <motion.li variants={childrenVariants}>
-              <PinButton>
+              <PinButton aria-label="attach a photo taken by the camera">
                 <CameraPin />
               </PinButton>
             </motion.li>
 
             <motion.li variants={childrenVariants}>
-              <PinButton>
+              <PinButton aria-label="attach a file">
                 <FilePin />
               </PinButton>
             </motion.li>
 
             <motion.li variants={childrenVariants}>
-              <PinButton>
+              <PinButton aria-label="attach a contact">
                 <ContactPin />
               </PinButton>
             </motion.li>
@@ -99,12 +100,12 @@ export const MessageInput = (): JSX.Element => {
 
       {message
         ? (
-        <IconButton>
+        <IconButton aria-label="send message">
           <Send />
         </IconButton>
           )
         : (
-        <IconButton>
+        <IconButton aria-label="send voice message">
           <KeyboardVoice />
         </IconButton>
           )}

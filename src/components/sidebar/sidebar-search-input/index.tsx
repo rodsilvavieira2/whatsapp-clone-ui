@@ -22,7 +22,6 @@ export const SidebarSearchInput = (
   const inputRef = useRef<HTMLInputElement>(null)
 
   const {
-    background,
     card: { colors }
   } = useTheme()
 
@@ -33,7 +32,7 @@ export const SidebarSearchInput = (
   return (
     <SearchWrapper
       sx={{
-        backgroundColor: isOnFocus ? colors.primary : background,
+        backgroundColor: isOnFocus ? 'inherit' : colors.primary,
         boxShadow: isOnFocus ? '0px 1px 1px rgba(0, 0, 0,0.3)' : 'unset'
       }}
     >

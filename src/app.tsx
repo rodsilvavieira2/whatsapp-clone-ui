@@ -1,15 +1,19 @@
 import { Box, styled } from '@mui/material'
+import { CssBaseline } from '@mui/material'
+import { ThemeProvider } from '@mui/material/styles'
 
 import { Sidebar, Chat, ChatData } from './components'
-import { ContactManagerProvider, UserActionsProvider } from './context'
+import { useUserActions } from './hooks'
+import { getTheme } from './styles/theme'
 
 const Container = styled(Box)(({ theme }) => ({
   display: 'flex',
   width: '100vw',
   height: '100vh',
   backgroundColor: theme.background,
+  color: theme.primary,
   '*': {
-    scrollbarColor: 'rgba(0,0,0,.2) hsla(0,0%,100%,.1)',
+    scrollbarColor: theme.scrollbar.backgroundColor,
     scrollbarWidth: 'thin'
   },
   '*::-webkit-scrollbar': {
@@ -25,17 +29,19 @@ const Container = styled(Box)(({ theme }) => ({
 }))
 
 export const App = (): JSX.Element => {
+  const { state: { currentTheme } } = useUserActions()
+
   return (
-    <Container>
-      <ContactManagerProvider>
-        <UserActionsProvider>
-          <Sidebar />
+    <ThemeProvider theme={getTheme(currentTheme)}>
+      <Container>
+        <CssBaseline />
 
-          <Chat />
+        <Sidebar />
 
-          <ChatData />
-        </UserActionsProvider>
-      </ContactManagerProvider>
-    </Container>
+        <Chat />
+
+        <ChatData />
+      </Container>
+    </ThemeProvider>
   )
 }

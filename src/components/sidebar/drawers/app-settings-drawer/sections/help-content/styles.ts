@@ -1,7 +1,6 @@
 import { styled } from '@mui/material/styles'
 
-export const QrCode = styled('div')(({ theme }) => ({
-  backgroundColor: theme.primary,
+export const QrCode = styled('div')(() => ({
   height: '16.125rem',
   width: '16.125rem',
   backgroundImage: 'url(/assets/qr-code.png)',
@@ -22,7 +21,6 @@ export const QrCodeWrapper = styled('div')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'center',
   flexDirection: 'column',
-  backgroundColor: theme.primary,
   small: {
     marginBottom: '2rem',
     textAlign: 'center',
@@ -35,14 +33,14 @@ export const HelpLink = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  color: theme.title,
+  color: 'inherit',
   height: '3.75rem',
   textDecoration: 'none',
   transition: 'background 0.3s',
   padding: '0 1.875rem',
   cursor: 'pointer',
   ':hover': {
-    backgroundColor: theme.borderColor.secondary
+    backgroundColor: theme.primary
   },
   verticalAlign: 'center',
   textAlign: 'center',

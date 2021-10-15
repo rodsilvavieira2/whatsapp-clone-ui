@@ -1,5 +1,6 @@
 import { createContext, Dispatch, ReactNode, useReducer } from 'react'
 
+import { localStorageKeys } from '../@types'
 import {
   InitialUserActionState,
   UserActionsReducer,
@@ -25,7 +26,22 @@ export const UserActionsProvider = ({
 }: UserActionsProviderProps): JSX.Element => {
   const [state, dispatch] = useReducer(
     UserActionsReducer,
-    InitialUserActionState
+    InitialUserActionState,
+    (initial) => {
+      const currentTheme = localStorage.getItem(localStorageKeys.user_theme)
+
+      if (currentTheme) {
+        return {
+          ...initial,
+          currentTheme
+        } as UserActionsInitialState
+      }
+
+      return {
+        ...initial,
+        currentTheme: 'system'
+      } as UserActionsInitialState
+    }
   )
 
   return (

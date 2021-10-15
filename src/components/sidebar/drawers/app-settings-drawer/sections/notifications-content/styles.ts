@@ -6,7 +6,7 @@ export const ConfigsWrapper = styled('div')(({ theme }) => ({
   height: '100%',
   maxWidth: '100%',
   padding: '0.5rem 1.2rem',
-  backgroundColor: theme.primary,
+  backgroundColor: 'inherit',
   '> label': {
     'p, small': {
       color: theme.text.primary,

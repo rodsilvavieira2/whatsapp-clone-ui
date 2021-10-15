@@ -5,7 +5,8 @@ export const Container = styled('div')(({ theme }) => ({
   flexDirection: 'column',
   flex: 1,
   position: 'relative',
-  backgroundImage: 'url(/assets/default-chat-background.png)',
+  backgroundColor: theme.chat.defaultColor,
+  backgroundImage: `url(/assets/${theme.chat.defaultBackgroundImage})`,
   backgroundRepeat: 'repeat',
   '::after': {
     content: '""',

@@ -10,27 +10,32 @@ export const ContactData = styled('div')(({ theme }) => ({
     textTransform: 'capitalize',
     overflow: 'hidden'
   },
-  p: {
-    color: theme.title
-  },
   small: {
     color: theme.text.secondary
   }
 }))
 
-export const CustomListItem = styled(ListItem)({
+export const CustomListItem = styled(ListItem)(({ theme }) => ({
   height: '3.75rem',
   '& > div': {
     height: '100%',
     paddingLeft: '1.5rem'
+  },
+  svg: {
+    color: theme.icons.color.primary
+  },
+  '> div': {
+    ':hover': {
+      backgroundColor: theme.primary
+    }
   }
-})
+}))
 
 export const AvatarButtonWrapper = styled(ButtonBase)(({ theme }) => ({
   justifyContent: 'unset',
   padding: '0.8rem 1rem',
   ':hover': {
-    backgroundColor: theme.buttons.hover[1]
+    backgroundColor: theme.primary
   },
   transition: 'background 0.3s'
 }))

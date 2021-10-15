@@ -4,3 +4,7 @@ export type Contact = {
   avatarUrl: string
   lastMessage: string
 }
+
+export enum localStorageKeys {
+  user_theme = 'whats-app-clone-theme'
+}

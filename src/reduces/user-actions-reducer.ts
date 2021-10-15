@@ -1,15 +1,19 @@
-import { Contact } from '../@types'
+import { Contact, localStorageKeys } from '../@types'
+
+type ThemeChoose = 'light' | 'dark' | 'system'
 
 export type UserActionsInitialState = {
   isContactDataDrawerOpen: boolean
   isUnblockModalOpen: boolean
   currentLoadedContactBlocked: Omit<Contact, 'avatarUrl'> | null
+  currentTheme: ThemeChoose
 }
 
 export const InitialUserActionState: UserActionsInitialState = {
   currentLoadedContactBlocked: null,
   isUnblockModalOpen: false,
-  isContactDataDrawerOpen: false
+  isContactDataDrawerOpen: false,
+  currentTheme: 'light'
 }
 
 export type UserActionsActions =
@@ -22,6 +26,10 @@ export type UserActionsActions =
     }
   | {
       type: 'toggle-chat-data-drawer'
+    }
+  | {
+      type: 'set-user-theme'
+      payload: ThemeChoose
     }
 
 export const UserActionsReducer = (
@@ -47,6 +55,15 @@ export const UserActionsReducer = (
       return {
         ...state,
         isUnblockModalOpen: !state.isUnblockModalOpen
+      }
+    }
+
+    case 'set-user-theme': {
+      localStorage.setItem(localStorageKeys.user_theme, actions.payload)
+
+      return {
+        ...state,
+        currentTheme: actions.payload
       }
     }
 

@@ -32,10 +32,12 @@ export const CustomModal = styled(Modal)(({ theme }) => ({
 export const Content = styled(Paper)(({ theme }) => ({
   width: '25rem',
   padding: '1.25rem 1.5rem',
+  background: theme.primary,
   h1: {
     color: theme.text.primary,
     marginBottom: '1.25rem'
-  }
+  },
+  color: theme.text.primary
 }))
 
 export const ButtonWrapper = styled('div')({

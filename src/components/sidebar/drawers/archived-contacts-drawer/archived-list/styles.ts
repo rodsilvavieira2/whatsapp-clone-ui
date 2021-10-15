@@ -19,6 +19,7 @@ export const ArchiveAlertWrapper = styled('div')(({ theme }) => ({
   textAlign: 'center',
   lineHeight: 2,
   width: '100%',
+  color: theme.text.primary,
   ' > svg': {
     color: theme.highlight.primary,
     margin: '1rem 0'
@@ -32,7 +33,7 @@ export const ArchiveAlertWrapper = styled('div')(({ theme }) => ({
   },
   '> h1': {
     fontSize: '1.3rem',
-    color: theme.title,
+    color: theme.text.primary,
     fontWight: 600
   }
 }))
@@ -40,5 +41,6 @@ export const ArchiveAlertWrapper = styled('div')(({ theme }) => ({
 export const CloseButton = styled(IconButton)({
   position: 'absolute',
   top: '1rem',
-  right: '1rem'
+  right: '1rem',
+  color: 'inherit'
 })

@@ -17,7 +17,7 @@ export const Label = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   position: 'relative',
   width: '100%',
-  backgroundColor: theme.card.colors.primary,
+  backgroundColor: theme.primary,
   borderRadius: '1rem',
   padding: '0.1rem 0',
   paddingLeft: '4.0625rem',
@@ -38,7 +38,7 @@ export const SearchWrapper = styled(Box)(({ theme }) => ({
   zIndex: 1
 }))
 
-export const CustomIconButton = styled(motion.button)(() => ({
+export const CustomIconButton = styled(motion.button)(({ theme }) => ({
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -50,5 +50,8 @@ export const CustomIconButton = styled(motion.button)(() => ({
   border: 0,
   borderRadius: '50%',
   height: '1.7rem',
-  width: '1.7rem'
+  width: '1.7rem',
+  svg: {
+    color: theme.icons.color.primary
+  }
 }))

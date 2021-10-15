@@ -4,8 +4,9 @@ import { styled } from '@mui/material/styles'
 export const CustomDrawer = styled(Drawer)(({ theme }) => ({
   '& .MuiDrawer-paper': {
     width: '24rem',
-    backgroundColor: theme.primary,
-    overflow: 'hidden'
+    backgroundColor: theme.card.colors.dark,
+    overflow: 'hidden',
+    color: theme.text.primary
   }
 }))
 
@@ -16,7 +17,6 @@ export const Header = styled('header')(({ theme }) => ({
   zIndex: 999,
   backgroundColor: theme.primary,
   height: '3.6875rem',
-  color: theme.title,
   padding: '0 1rem',
   '> button': {
     marginRight: '0.5rem',
@@ -50,7 +50,7 @@ export const CustomStack = styled(Stack)(({ theme }) => ({
   overflow: 'auto',
   paddingBottom: theme.utils.covertPxToRem(32),
   '> *': {
-    backgroundColor: theme.card.colors.primary,
+    backgroundColor: theme.secondary,
     boxShadow: theme.card.shadows[1],
     flexShrink: 0
   }

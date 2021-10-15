@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import {
   FormControl,
   FormControlLabel,
@@ -6,6 +8,7 @@ import {
 } from '@mui/material'
 
 import { CustomRadio } from '../..'
+import { useUserActions } from '../../../hooks'
 import {
   CancelButton,
   CustomModal,
@@ -19,6 +22,20 @@ export const ChooseThemeModal = ({
   isOpen,
   onRequestClose
 }: DefaultPropsModal): JSX.Element => {
+  const {
+    state: { currentTheme },
+    dispatch
+  } = useUserActions()
+  const [theme, setTheme] = useState(currentTheme)
+
+  const onRequestSaveChoose = () => {
+    onRequestClose()
+    dispatch({
+      type: 'set-user-theme',
+      payload: theme
+    })
+  }
+
   return (
     <CustomModal open={isOpen}>
       <Content>
@@ -29,11 +46,12 @@ export const ChooseThemeModal = ({
         <FormControl component="div">
           <RadioGroup
             aria-label="chose a theme"
-            defaultValue="Light"
+            defaultValue={currentTheme}
             name="theme"
+            onChange={(event) => setTheme(event.currentTarget.value as any)}
           >
             <FormControlLabel
-              value="female"
+              value="light"
               control={<CustomRadio />}
               label=" light"
             />
@@ -64,7 +82,7 @@ export const ChooseThemeModal = ({
             Cancel
           </CancelButton>
 
-          <OkayButton onClick={onRequestClose}>Ok</OkayButton>
+          <OkayButton onClick={onRequestSaveChoose}>Ok</OkayButton>
         </ButtonWrapper>
       </Content>
     </CustomModal>

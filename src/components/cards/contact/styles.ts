@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles'
 export const Container = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-  color: theme.title,
+  color: theme.text.primary,
   overflow: 'hidden',
   height: '4.5rem',
   paddingRight: '0.5rem',
@@ -44,10 +44,13 @@ export const LastMessageTemp = styled('time')(({ theme }) => ({
   marginLeft: 'auto'
 }))
 
-export const MenuButton = styled(IconButton)({
+export const MenuButton = styled(IconButton)(({ theme }) => ({
   width: '1.5rem',
-  height: '1.5rem'
-})
+  height: '1.5rem',
+  svg: {
+    color: theme.icons.color.primary
+  }
+}))
 
 type LastMessageWrapperProps = {
   isInFocus: boolean

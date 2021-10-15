@@ -12,7 +12,7 @@ export const ContactData = styled('div')(({ theme }) => ({
   flex: '1',
   marginLeft: '1rem',
   p: {
-    color: theme.title
+    color: theme.text.primary
   }
 }))
 
@@ -20,5 +20,8 @@ export const ContactData = styled('div')(({ theme }) => ({
 export const Actions = styled('div')(({ theme }) => ({
   flexShrink: 0,
   display: 'flex',
-  alignItems: 'center'
+  alignItems: 'center',
+  'button > svg': {
+    color: theme.icons.color.primary
+  }
 }))

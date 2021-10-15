@@ -2,7 +2,7 @@ import { Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
 
 export const Container = styled('div')(({ theme }) => ({
-  backgroundColor: theme.card.colors.primary,
+  backgroundColor: theme.secondary,
   maxWidth: '100%',
   flex: 1,
   overflow: 'auto',
@@ -12,10 +12,10 @@ export const Container = styled('div')(({ theme }) => ({
 export const ArchivedButton = styled('button')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-  backgroundColor: theme.card.colors.primary,
+  backgroundColor: 'inherit',
   fontFamily: 'inherit',
   border: 0,
-  color: theme.title,
+  color: theme.text.primary,
   fontSize: '17px',
   fontWeight: 400,
   padding: '0.5rem 0.5rem 0 2rem ',

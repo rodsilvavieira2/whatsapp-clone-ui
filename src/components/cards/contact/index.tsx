@@ -1,9 +1,9 @@
 import { memo, useState } from 'react'
 
 import { KeyboardArrowDown } from '@mui/icons-material'
-import { Typography, Menu } from '@mui/material'
+import { Typography } from '@mui/material'
 
-import { CustomMenuItem } from '../..'
+import { CustomMenu, CustomMenuItem } from '../..'
 import { useControlMenu } from '../../../hooks'
 import {
   Container,
@@ -70,7 +70,7 @@ export const Base = ({
         </LastMessageWrapper>
       </Data>
 
-      <Menu
+      <CustomMenu
         id="contact-menu-options"
         open={isOpen}
         anchorEl={anchorEl}
@@ -89,7 +89,7 @@ export const Base = ({
         <CustomMenuItem onClick={handleMenuClose}>
           Pin conversation
         </CustomMenuItem>
-      </Menu>
+      </CustomMenu>
     </Container>
   )
 }

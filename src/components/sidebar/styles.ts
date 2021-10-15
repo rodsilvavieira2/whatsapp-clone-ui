@@ -11,7 +11,8 @@ export const Container = styled('aside', {
   flexDirection: 'column',
   flex: isDataContactOpen ? '0 0 25%' : '30%',
   borderRight: `1px solid ${theme.borderColor.primary}`,
-  overflow: 'hidden'
+  overflow: 'hidden',
+  backgroundColor: theme.secondary
 }))
 
 export const Header = styled('header')(({ theme }) => ({
@@ -20,8 +21,8 @@ export const Header = styled('header')(({ theme }) => ({
   justifyContent: 'space-between',
   padding: theme.utils.covertPxToRem([10, 16]),
   backgroundColor: theme.primary,
-  svg: {
-    color: theme.text.primary
+  'button > svg': {
+    color: theme.icons.color.primary
   }
 }))
 

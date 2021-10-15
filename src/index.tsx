@@ -1,18 +1,16 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom'
 
-import { CssBaseline } from '@mui/material'
-import { ThemeProvider } from '@mui/material/styles'
-
 import { App } from './app'
-import { theme } from './styles/theme'
+import { ContactManagerProvider, UserActionsProvider } from './context'
 
 ReactDOM.render(
   <StrictMode>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <App />
-    </ThemeProvider>
+    <ContactManagerProvider>
+      <UserActionsProvider>
+        <App />
+      </UserActionsProvider>
+    </ContactManagerProvider>
   </StrictMode>,
   document.getElementById('root')
 )

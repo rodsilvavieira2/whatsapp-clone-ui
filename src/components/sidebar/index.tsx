@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
 import { MoreVert, Message } from '@mui/icons-material'
-import { Avatar, IconButton, Menu } from '@mui/material'
+import { Avatar, IconButton } from '@mui/material'
 
-import { StoriesIcon, CustomMenuItem } from '..'
+import { StoriesIcon, CustomMenuItem, CustomMenu } from '..'
 
 import { useControlMenu, useUserActions } from '../../hooks'
 import { ContactMessageList } from './contact-message-list'
@@ -57,9 +57,11 @@ export const Sidebar = (): JSX.Element => {
         </Actions>
       </Header>
 
-      <ContactMessageList onRequestOpenArchivedDrawer={() => setIsArchivedDrawerOpen(true) } />
+      <ContactMessageList
+        onRequestOpenArchivedDrawer={() => setIsArchivedDrawerOpen(true)}
+      />
 
-      <Menu
+      <CustomMenu
         id="archived-contacts-menu"
         open={isOpen}
         anchorEl={anchorEl}
@@ -82,7 +84,7 @@ export const Sidebar = (): JSX.Element => {
         </CustomMenuItem>
 
         <CustomMenuItem onClick={handleMenuClose}>Disconnect</CustomMenuItem>
-      </Menu>
+      </CustomMenu>
 
       <ArchivedContactsDrawer
         onRequestCloseDrawer={() => setIsArchivedDrawerOpen(false)}
