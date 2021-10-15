@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import { Close } from '@mui/icons-material'
 import { Avatar, Typography } from '@mui/material'
 
@@ -7,7 +9,7 @@ import { Container, ContactDataWrapper, CloseButton } from './styles'
 
 type BlockedContactProps = Contact
 
-export const BlockedContact = ({
+const Base = ({
   id,
   contactName,
   lastMessage,
@@ -49,3 +51,5 @@ export const BlockedContact = ({
     </Container>
   )
 }
+
+export const BlockedContact = memo(Base)

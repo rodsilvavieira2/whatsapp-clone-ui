@@ -4,11 +4,8 @@ import ReactDOM from 'react-dom'
 import { CssBaseline } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
 
-import { App } from './App'
-import { initMirageServer } from './services/miragejs'
+import { App } from './app'
 import { theme } from './styles/theme'
-
-initMirageServer()
 
 ReactDOM.render(
   <StrictMode>

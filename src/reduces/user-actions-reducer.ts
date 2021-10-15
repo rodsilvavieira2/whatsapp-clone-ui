@@ -4,14 +4,12 @@ export type UserActionsInitialState = {
   isContactDataDrawerOpen: boolean
   isUnblockModalOpen: boolean
   currentLoadedContactBlocked: Omit<Contact, 'avatarUrl'> | null
-  searchValue: string
 }
 
 export const InitialUserActionState: UserActionsInitialState = {
   currentLoadedContactBlocked: null,
   isUnblockModalOpen: false,
-  isContactDataDrawerOpen: false,
-  searchValue: ''
+  isContactDataDrawerOpen: false
 }
 
 export type UserActionsActions =
@@ -24,10 +22,6 @@ export type UserActionsActions =
     }
   | {
       type: 'toggle-chat-data-drawer'
-    }
-  | {
-      type: 'set-search-value'
-      payload: string
     }
 
 export const UserActionsReducer = (
@@ -53,13 +47,6 @@ export const UserActionsReducer = (
       return {
         ...state,
         isUnblockModalOpen: !state.isUnblockModalOpen
-      }
-    }
-
-    case 'set-search-value': {
-      return {
-        ...state,
-        searchValue: actions.payload
       }
     }
 

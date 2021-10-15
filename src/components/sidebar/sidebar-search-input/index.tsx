@@ -1,8 +1,7 @@
 import { AnimatePresence } from 'framer-motion'
 import {
-  forwardRef,
-  ForwardRefRenderFunction,
   InputHTMLAttributes,
+  useRef,
   useState
 } from 'react'
 
@@ -16,20 +15,20 @@ interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
   onChangeValue :(value: string) => void
 }
 
-const Base: ForwardRefRenderFunction<HTMLInputElement, SearchInputProps> = (
-  {
-    onChangeValue,
-    value,
-    ...rest
-  },
-  ref
+export const SidebarSearchInput = (
+  { onChangeValue, value, ...rest }: SearchInputProps
 ): JSX.Element => {
   const [isOnFocus, setIsOnFocus] = useState(false)
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const {
     background,
     card: { colors }
   } = useTheme()
+
+  const onRequestClearSearchValue = () => console.log('clear')
+
+  const onRequestStartSearch = () => inputRef.current?.focus()
 
   return (
     <SearchWrapper
@@ -48,7 +47,8 @@ const Base: ForwardRefRenderFunction<HTMLInputElement, SearchInputProps> = (
               initial="initial"
               animate="animate"
               exit="exit"
-              aria-label="cancel search"
+              aria-label="clear search"
+              onClick={onRequestClearSearchValue}
             >
               <ArrowBack className="arrow-back" />
             </CustomIconButton>
@@ -61,6 +61,7 @@ const Base: ForwardRefRenderFunction<HTMLInputElement, SearchInputProps> = (
               animate="animate"
               exit="exit"
               aria-label="start search"
+              onClick={onRequestStartSearch}
             >
               <Search />
             </CustomIconButton>
@@ -69,7 +70,7 @@ const Base: ForwardRefRenderFunction<HTMLInputElement, SearchInputProps> = (
 
         <Input
           placeholder="Search or start a new conversation"
-          inputRef={ref}
+          inputRef={inputRef}
           inputProps={{
             onFocus: () => setIsOnFocus(true),
             onBlur: () => setIsOnFocus(false),
@@ -82,5 +83,3 @@ const Base: ForwardRefRenderFunction<HTMLInputElement, SearchInputProps> = (
     </SearchWrapper>
   )
 }
-
-export const SidebarSearchInput = forwardRef(Base)

@@ -11,6 +11,16 @@ const Container = styled(Box)(({ theme }) => ({
   '*': {
     scrollbarColor: 'rgba(0,0,0,.2) hsla(0,0%,100%,.1)',
     scrollbarWidth: 'thin'
+  },
+  '*::-webkit-scrollbar': {
+    width: '6px!important',
+    height: '6px!important'
+  },
+  '*::-webkit-scrollbar-thumb': {
+    backgroundColor: 'rgba(0,0,0,.2)'
+  },
+  '::-webkit-scrollbar-track': {
+    background: 'hsla(0,0%,100%,.1)'
   }
 }))
 

@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
 
 export const Container = styled('div')(({ theme }) => ({
@@ -31,4 +32,20 @@ export const ArchivedButton = styled('button')(({ theme }) => ({
     padding: '0.5rem 0 1rem',
     textAlign: 'left'
   }
+}))
+
+export const NoSearchResult = styled(Typography)(({ theme }) => ({
+  color: theme.text.secondary,
+  textAlign: 'center',
+  padding: theme.utils.covertPxToRem([72, 50]),
+  fontSize: theme.utils.covertPxToRem(14)
+}))
+
+export const ConversationsTitle = styled(Typography)(({ theme }) => ({
+  fontSize: '1rem',
+  color: theme.highlight.primary,
+  padding: theme.utils.covertPxToRem([30, 0, 15, 32]),
+  textTransform: 'uppercase',
+  textAlign: 'left',
+  height: theme.utils.covertPxToRem(72)
 }))
