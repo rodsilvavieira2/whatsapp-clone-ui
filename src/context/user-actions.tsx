@@ -37,9 +37,17 @@ export const UserActionsProvider = ({
         } as UserActionsInitialState
       }
 
+      let systemTheme = 'light'
+
+      const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)')
+
+      if (darkThemeMq) {
+        systemTheme = 'dark'
+      }
+
       return {
         ...initial,
-        currentTheme: 'system'
+        currentTheme: systemTheme
       } as UserActionsInitialState
     }
   )

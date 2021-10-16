@@ -1,9 +1,10 @@
 import { cloneElement, ReactElement } from 'react'
 
 import { ArrowBack, MoreVert } from '@mui/icons-material'
-import { IconButton, Typography, Menu } from '@mui/material'
+import { IconButton, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 
+import { CustomMenu } from '../../../..'
 import { useControlMenu } from '../../../../../hooks'
 import { Container, Actions } from './styles'
 
@@ -74,7 +75,7 @@ export const Header = ({
       </Actions>
 
       {moreOptionsMenuConfig && (
-        <Menu
+        <CustomMenu
           id={moreOptionsMenuConfig.id}
           open={IsMenuOpen}
           anchorEl={anchorEl}
@@ -93,7 +94,7 @@ export const Header = ({
               key: id
             })
           })}
-        </Menu>
+        </CustomMenu>
       )}
     </Container>
   )

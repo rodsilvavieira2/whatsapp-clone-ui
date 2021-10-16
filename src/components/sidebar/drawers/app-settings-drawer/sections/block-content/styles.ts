@@ -2,7 +2,7 @@ import { Button } from '@mui/material'
 import { styled } from '@mui/material/styles'
 
 export const AddBlockedContact = styled(Button)(({ theme }) => ({
-  color: theme.title,
+  color: theme.text.primary,
   height: '5rem',
   textTransform: 'none',
   fontSize: '1.0625rem',
@@ -13,7 +13,7 @@ export const AddBlockedContact = styled(Button)(({ theme }) => ({
   },
   svg: {
     fontSize: '1.25rem !important',
-    color: theme.text.secondary
+    color: theme.icons.color.primary
   }
 }))
 

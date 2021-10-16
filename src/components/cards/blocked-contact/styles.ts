@@ -11,12 +11,26 @@ export const Container = styled('div')(({ theme }) => ({
   transition: 'background 0.3s',
   ':hover': {
     backgroundColor: theme.primary
+  },
+  'button > svg': {
+    color: theme.icons.color.primary
   }
 }))
 
 export const ContactDataWrapper = styled('div')(({ theme }) => ({
-  small: {
+  width: '100%',
+  maxHeight: '100%',
+  overflow: 'hidden',
+  p: {
     color: theme.text.primary
+  },
+  small: {
+    display: 'inline-block',
+    color: theme.text.secondary,
+    maxWidth: '100%',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis'
   }
 }))
 
