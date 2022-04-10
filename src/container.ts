@@ -4,6 +4,7 @@ export const Container = styled(Box)(({ theme }) => ({
   display: 'flex',
   width: '100vw',
   height: '100vh',
+  overflow: 'hidden',
   backgroundColor: theme.background,
   color: theme.primary,
   '*': {
