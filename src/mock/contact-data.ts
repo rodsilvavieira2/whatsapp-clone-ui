@@ -1,4 +1,4 @@
-import faker from 'faker'
+import faker from '@faker-js/faker'
 
 export const ContactsMocked = Array.from({ length: 20 }).map(() => ({
   id: faker.datatype.uuid(),
