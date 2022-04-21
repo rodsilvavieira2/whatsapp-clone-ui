@@ -2,6 +2,9 @@
 
 A clone of whatsApp light/dark theme interface, using the react material ui components
 
+## Deploy
+https://teal-shortbread-2028b9.netlify.app
+
 ## Preview
 
 ### Light theme
